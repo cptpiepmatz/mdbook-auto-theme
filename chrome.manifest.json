@@ -1,0 +1,20 @@
+{
+  "name": "mdBook Auto Theme",
+  "description": "",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "storage.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*"],
+      "run_at": "document_end",
+      "js": ["out/pages.bundle.js"]
+    }
+  ],
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": ["*"]
+}
