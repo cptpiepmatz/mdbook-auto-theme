@@ -14,8 +14,39 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bulma-checkradio@2.1.3/dist/css/bulma-checkradio.min.css"
   >
-  <link rel="stylesheet" href="settings.css">
-  <script defer src="settings.js"></script>
+  <style>
+      .github_logo {
+          filter: brightness(0);
+      }
+
+      @media (prefers-color-scheme: dark) {
+          .github_logo {
+              filter: brightness(0) invert(1);
+          }
+      }
+  </style>
+  <script defer>
+    // show version number
+    document.getElementById("manifestVersion").innerText =
+      chrome.runtime.getManifest().version;
+
+    // set theme via radio
+    document.addEventListener("input", e => {
+      let data = Object.fromEntries([[e.target.name, e.target.value]]);
+      chrome.storage.sync.set(data);
+    });
+
+    // fetch themes from sync storage
+    chrome.storage.sync.get(["light", "dark"], ({light, dark}) => {
+      let lightId = "dark-" + (dark ?? "navy");
+      let lightInput = document.getElementById(lightId);
+      lightInput.checked = true;
+
+      let darkId = "light-" + (light ?? "light");
+      let darkInput = document.getElementById(darkId);
+      darkInput.checked = true;
+    });
+  </script>
 </head>
 <body>
 <div class="card">
@@ -31,13 +62,14 @@
     <div class="columns is-mobile">
       <div class="column">
         <p class="subtitle">Light Theme</p>
-        <div>
+        <div class="is-unselectable">
           <div class="field">
             <input
               type="radio"
               class="is-checkradio is-info is-white-dark is-small"
               id="light-light"
               name="light"
+              value="light"
             >
             <label for="light-light">Light (default)</label>
           </div>
@@ -47,6 +79,7 @@
               class="is-checkradio is-info is-white-dark is-small"
               id="light-rust"
               name="light"
+              value="rust"
             >
             <label for="light-rust">Rust</label>
           </div>
@@ -56,6 +89,7 @@
               class="is-checkradio is-info is-white-dark is-small"
               id="light-coal"
               name="light"
+              value="coal"
             >
             <label for="light-coal">Coal</label>
           </div>
@@ -65,6 +99,7 @@
               class="is-checkradio is-info is-white-dark is-small"
               id="light-navy"
               name="light"
+              value="navy"
             >
             <label for="light-navy">Navy</label>
           </div>
@@ -74,6 +109,7 @@
               class="is-checkradio is-info is-white-dark is-small"
               id="light-ayu"
               name="light"
+              value="ayu"
             >
             <label for="light-ayu">Ayu</label>
           </div>
@@ -81,13 +117,14 @@
       </div>
       <div class="column">
         <p class="subtitle">Dark Theme</p>
-        <div>
+        <div class="is-unselectable">
           <div class="field">
             <input
               type="radio"
               class="is-checkradio is-info is-white-dark is-small"
               id="dark-light"
               name="dark"
+              value="light"
             >
             <label for="dark-light">Light</label>
           </div>
@@ -97,6 +134,7 @@
               class="is-checkradio is-info is-white-dark is-small"
               id="dark-rust"
               name="dark"
+              value="rust"
             >
             <label for="dark-rust">Rust</label>
           </div>
@@ -106,6 +144,7 @@
               class="is-checkradio is-info is-white-dark is-small"
               id="dark-coal"
               name="dark"
+              value="coal"
             >
             <label for="dark-coal">Coal</label>
           </div>
@@ -115,6 +154,7 @@
               class="is-checkradio is-info is-white-dark is-small"
               id="dark-navy"
               name="dark"
+              value="navy"
             >
             <label for="dark-navy">Navy (default)</label>
           </div>
@@ -124,6 +164,7 @@
               class="is-checkradio is-info is-white-dark is-small"
               id="dark-ayu"
               name="dark"
+              value="ayu"
             >
             <label for="dark-ayu">Ayu</label>
           </div>
@@ -149,7 +190,7 @@
   </div>
   <div class="card-footer" style="border-radius: unset">
     <a
-      href="https://github.com/cptpiepmatz/great-on-deck-search"
+      href="https://github.com/cptpiepmatz/mdbook-auto-theme"
       target="_blank"
       class="card-footer-item"
     >

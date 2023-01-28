@@ -3,21 +3,14 @@
   "description": "",
   "version": "0.1.0",
   "manifest_version": 3,
-  "background": {
-    "service_worker": "background/storage.js"
-  },
-  "content_scripts": [
-    {
-      "matches": ["*://*/*"],
-      "run_at": "document_end",
-      "js": ["page/page.js"]
-    }
-  ],
-  "permissions": [
-    "storage"
-  ],
+  "content_scripts": [{
+    "matches": ["*://*/*"],
+    "run_at": "document_end",
+    "js": ["page.js"]
+  }],
+  "permissions": ["storage"],
   "host_permissions": ["*://*/*"],
   "action": {
-    "default_popup": "settings/settings.html"
+    "default_popup": "settings.html"
   }
 }

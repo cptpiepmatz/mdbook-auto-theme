@@ -1,9 +1,0 @@
-.github_logo {
-    filter: brightness(0);
-}
-
-@media (prefers-color-scheme: dark) {
-    .github_logo {
-        filter: brightness(0) invert(1);
-    }
-}

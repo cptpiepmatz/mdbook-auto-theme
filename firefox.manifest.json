@@ -3,18 +3,13 @@
   "description": "",
   "version": "0.1.0",
   "manifest_version": 2,
-  "background": {
-    "scripts": ["storage.js"]
-  },
-  "content_scripts": [
-    {
-      "matches": ["*"],
-      "run_at": "document_idle",
-      "js": ["out/pages.bundle.js"]
-    }
-  ],
+  "content_scripts": [{
+    "matches": ["*://*/*"],
+    "run_at": "document_idle",
+    "js": ["page.js"]
+  }],
   "permissions": [
     "storage",
-    "*"
+    "*://*/*"
   ]
 }
