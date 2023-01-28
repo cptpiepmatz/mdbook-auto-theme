@@ -4,17 +4,20 @@
   "version": "0.1.0",
   "manifest_version": 3,
   "background": {
-    "service_worker": "storage.js"
+    "service_worker": "background/storage.js"
   },
   "content_scripts": [
     {
-      "matches": ["*"],
+      "matches": ["*://*/*"],
       "run_at": "document_end",
-      "js": ["out/pages.bundle.js"]
+      "js": ["page/page.js"]
     }
   ],
   "permissions": [
     "storage"
   ],
-  "host_permissions": ["*"]
+  "host_permissions": ["*://*/*"],
+  "action": {
+    "default_popup": "settings/settings.html"
+  }
 }
