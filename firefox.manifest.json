@@ -11,5 +11,13 @@
   "permissions": [
     "storage",
     "*://*/*"
-  ]
+  ],
+  "browser_action": {
+    "default_popup": "settings.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{e9884c5e-c30e-4ecb-b152-7ecb7a7d0972}"
+    }
+  }
 }
