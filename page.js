@@ -42,7 +42,7 @@ function updateTheme(setToDark, theme) {
     log(`Wants ${preference} mode, will set to '${printTheme}'.`);
 
     let selectorButton = document.querySelector(`.theme#${theme}`);
-    selectorButton.click();
+    selectorButton?.click();
 }
 
 function log(message) {
