@@ -10,14 +10,13 @@
 
 <br>
 
-<p align="center">
-  <a href="https://chrome.google.com/webstore/detail/mdbook-auto-theme/lkdbgbnmahmockjjcjokmnjeeddaoeib">
-    <img alt="Chrome Web Store Version" src="https://img.shields.io/chrome-web-store/v/lkdbgbnmahmockjjcjokmnjeeddaoeib?logo=google-chrome&style=for-the-badge"/>
-  </a>
-  <a href="https://addons.mozilla.org/firefox/addon/mdbook-auto-theme/">
-    <img alt="Mozilla Add-On Version" src="https://img.shields.io/amo/v/mdbook-auto-theme?color=orange&logo=firefox&style=for-the-badge"/>
-  </a>
-</p>
+<div align="center">
+
+  [![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/lkdbgbnmahmockjjcjokmnjeeddaoeib?logo=google-chrome&style=for-the-badge)](https://chrome.google.com/webstore/detail/mdbook-auto-theme/lkdbgbnmahmockjjcjokmnjeeddaoeib)
+  [![Mozilla Add-On Version](https://img.shields.io/amo/v/mdbook-auto-theme?color=orange&logo=firefox&style=for-the-badge)](https://addons.mozilla.org/firefox/addon/mdbook-auto-theme/)
+
+</div>
+
 
 ## Features
 - Automatically switches between light and dark mode based on system preferences.
